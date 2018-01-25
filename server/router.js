@@ -1,7 +1,13 @@
 var router = require('express').Router();
 
 router.post('/submit', (req, res) => {
-    console.log(req.body)
+  let input = req.body.input
+  let result = input.split('')
+                    .sort()
+                    .reverse()
+                    .join('')
+
+  res.send(result)
 })
 
 module.exports = router;

@@ -6,6 +6,7 @@ class Main extends React.Component {
     super()
     this.state = {
       inputVal: '',
+      sortedVal: [],
     }
 
     this.handleOnChange = this.handleOnChange.bind(this);
@@ -17,8 +18,10 @@ class Main extends React.Component {
   }
 
   handleSubmit(e) {
-    axios
-      .post('submit', {input: this.state.inputVal})
+    e.preventDefault();
+    this.setState({inputVal: ''})
+    axios.post('submit', {input: this.state.inputVal})
+         .then(res => this.setState({sortedVal: this.state.sortedVal.concat(res.data)}))
   }
 
   render() {
@@ -33,6 +36,9 @@ class Main extends React.Component {
                  value="submit" 
                  onClick={this.handleSubmit} />
         </form>
+        <ul>
+          {this.state.sortedVal.map((val) => <li>{val}</li>)}
+        </ul>
       </div>
     );
   }
