@@ -26,9 +26,8 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="form">
         <form>
-          submit
           <input type="text" 
                  value={this.state.inputVal} 
                  onChange={this.handleOnChange} />
