@@ -4,7 +4,7 @@ class Main extends React.Component {
   render() {console.log('aa')
     return (
       <div>
-        reactMain
+        main!
       </div>
     );
   }
